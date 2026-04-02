@@ -7,6 +7,8 @@
 
 ## 0. Tu primer programa
 
+**Lenguaje: C++**
+
 ```cpp
 #include <iostream>
 using namespace std;
