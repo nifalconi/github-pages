@@ -39,7 +39,6 @@ int main() {
 
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -180,7 +179,6 @@ int main() {
 
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int suma(int a, int b) {
@@ -204,7 +202,6 @@ int main() {
 
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 struct Persona {
