@@ -1,7 +1,8 @@
-site_name: C++ Summary
+site_name: Guía de C++
 site_url: https://nifalconi.github.io/github-pages/
 theme:
   name: material
+  language: es
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -21,5 +22,16 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/clike/clike.min.js
+  - js/JSCPP.es5.min.js
+  - js/cpprunner.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/dracula.min.css
+  - css/cpprunner.css
+
 nav:
   - Home: index.md
