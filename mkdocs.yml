@@ -33,4 +33,6 @@ extra_css:
   - css/cpprunner.css
 
 nav:
-  - Home: index.md
+  - Basico: index.md
+  - Medio: medio.md
+  - Avanzado: avanzado.md

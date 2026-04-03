@@ -1,41 +1,28 @@
+# Referencia rapida de C++
 
-# 🌟 Resumen exprés de C++ — versión mejorada + truquitos 🌟  
-
-*Pensado para estudiantes que recién empiezan.*
+*Tu hoja de ayuda para cuando no te acuerdes como se escribia algo.*
 
 ---
 
 ## 0. Tu primer programa
 
-Lenguaje: C++
+Todo programa en C++ arranca con estas tres lineas: `#include <iostream>` para poder mostrar texto y leer datos, `using namespace std;` para no tener que escribir `std::` todo el tiempo, y `int main()` que es donde empieza tu programa.
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    cout << "¡Hola mundo!\n";
+    cout << "Hola mundo!" << "\n";
     return 0;
 }
 ```
 
 ---
 
-## 1. Variables 🧰  
+## 1. Variables
 
-| Tipo | Guarda… | Ejemplo |
-| ----- | ------- | ------- |
-| `int` | Enteros | `int edad = 14;` |
-| `float` / `double` | Decimales | `float nota = 6.5f;` |
-| `char` | Una letra | `char inicial = 'A';` |
-| `bool` | Verdadero/Falso | `bool feliz = true;` |
-| `string`* | Texto | `string nombre = "Ana";` |
-
-> \*Recuerda incluir `#include <string>` para usar `string`.
-
----
-
-## 2. Entrada / Salida 💬
+Una variable es un nombre que le pones a un dato para guardarlo y usarlo despues.
 
 ```cpp
 #include <iostream>
@@ -43,22 +30,89 @@ int main() {
 using namespace std;
 
 int main() {
-    int edad;
-    cout << "Cual es tu edad? ";
-    cin  >> edad;
-    cout << "Tienes " << edad << " anos\n";
+    int edad = 14;             // numeros enteros
+    double nota = 6.5;         // numeros con decimales
+    char inicial = 'A';        // un solo caracter (con comillas simples)
+    bool aprobado = true;      // verdadero o falso
+    string nombre = "Ana";     // texto (con comillas dobles)
 
-    string nombre;
-    cin.ignore();
-    getline(cin, nombre);
-    cout << "Hola " << nombre << "\n";
+    cout << nombre << " tiene " << edad << " anos" << "\n";
+    cout << "Su nota es " << nota << "\n";
+    cout << "Inicial: " << inicial << "\n";
+    cout << "Aprobo? " << aprobado << "\n";
+    return 0;
+}
+```
+
+| Tipo | Para que sirve | Ejemplo |
+| --- | --- | --- |
+| `int` | Numeros enteros | `int edad = 14;` |
+| `double` | Numeros con decimales | `double nota = 6.5;` |
+| `char` | Un solo caracter | `char letra = 'A';` |
+| `bool` | Verdadero o falso | `bool ok = true;` |
+| `string` | Texto | `string nombre = "Ana";` |
+
+> Para usar `string` necesitas agregar `#include <string>` arriba del programa.
+
+---
+
+## 2. Entrada y salida
+
+- `cout` — muestra texto en pantalla. Las flechitas `<<` apuntan hacia afuera (la pantalla).
+- `cin` — lee lo que el usuario escribe. Las flechitas `>>` apuntan hacia el computador (la variable) donde se guarda el dato.
+- `"\n"` o `endl` — bajan un renglon (salto de linea).
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int edad;
+    cout << "Cuantos anos tienes? ";
+    cin >> edad;
+    cout << "En 10 anos vas a tener " << edad + 10 << "\n";
     return 0;
 }
 ```
 
 ---
 
-## 3. Condicionales 🔀
+## 3. Condicionales
+
+Sirven para que el programa tome decisiones. `if` revisa si algo se cumple, y si es asi hace lo que esta adentro. `else if` revisa otra cosa. `else` es lo que pasa si nada de lo anterior se cumplio.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nota = 85;
+
+    if (nota >= 90) {
+        cout << "Excelente!" << "\n";
+    } else if (nota >= 70) {
+        cout << "Bien hecho" << "\n";
+    } else if (nota >= 50) {
+        cout << "Aprobado, pero estudia mas" << "\n";
+    } else {
+        cout << "Reprobado" << "\n";
+    }
+    return 0;
+}
+```
+
+Operadores de comparacion:
+
+| Operador | Significa | Ejemplo |
+| --- | --- | --- |
+| `==` | Es igual a | `x == 5` |
+| `!=` | Es distinto de | `x != 0` |
+| `<` | Menor que | `x < 10` |
+| `>` | Mayor que | `x > 3` |
+| `<=` | Menor o igual | `x <= 100` |
+| `>=` | Mayor o igual | `x >= 18` |
+
+Puedes combinar condiciones con `&&` (y) y `||` (o):
 
 ```cpp
 #include <iostream>
@@ -66,12 +120,12 @@ using namespace std;
 
 int main() {
     int edad = 15;
-    if (edad >= 18) {
-        cout << "Mayor de edad\n";
-    } else if (edad >= 13) {
-        cout << "Adolescente\n";
+    bool tienePermiso = true;
+
+    if (edad >= 13 && tienePermiso) {
+        cout << "Puedes entrar" << "\n";
     } else {
-        cout << "Niña/o\n";
+        cout << "No puedes entrar" << "\n";
     }
     return 0;
 }
@@ -79,173 +133,38 @@ int main() {
 
 ---
 
-## 4. Bucles 🔁  
+## 4. Bucles
 
-### `for` – veces conocidas
+Un bucle repite un bloque de codigo varias veces.
+
+### `for` — cuando sabes cuantas veces repetir
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    for (int i = 0; i < 5; ++i) {
-        cout << i << " ";      // 0 1 2 3 4
+    for (int i = 1; i <= 5; ++i) {
+        cout << "Repeticion numero " << i << "\n";
     }
-    cout << "\n";
     return 0;
 }
 ```
 
-### `while` – mientras se cumpla algo
+El `for` tiene tres partes: desde donde arranca (`int i = 1`), hasta cuando sigue (`i <= 5`), y de cuanto en cuanto sube (`++i` significa que sube de a uno).
+
+### `while` — cuando no sabes cuantas veces, pero sabes la condicion
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int i = 0;
-    while (i < 3) {
-        cout << i << " ";      // 0 1 2
-        ++i;
+    int numero = 1;
+    while (numero <= 100) {
+        numero = numero * 2;
     }
-    cout << "\n";
+    cout << "El primer numero mayor a 100 duplicando es: " << numero << "\n";
     return 0;
 }
 ```
-
----
-
-## 5. Arreglos (arrays) 📦
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    int notas[3] = {7, 6, 5};
-
-    int tam = sizeof(notas) / sizeof(notas[0]);   // tamaño
-
-    for (int i = 0; i < tam; ++i) {
-        cout << notas[i] << " ";                  // 7 6 5
-    }
-    cout << "\n";
-    return 0;
-}
-```
-
-> 🔒 El tamaño es fijo; no puede crecer.
-
----
-
-## 6. Vectores (`std::vector`) 🪄
-
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-    vector<int> edades = {10, 12};
-    edades.push_back(14);
-
-    for (size_t i = 0; i < edades.size(); ++i) {
-        cout << edades[i] << " ";             // 10 12 14
-    }
-    cout << "\n";
-    return 0;
-}
-```
-
-Funciones útiles:
-
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-    vector<int> edades = {10, 12, 14};
-    cout << edades.back() << "\n";    // Último elemento: 14
-    cout << edades.size() << "\n";    // Cantidad total: 3
-    edades.clear();                   // Vaciar el vector
-    cout << edades.size() << "\n";    // Ahora: 0
-    return 0;
-}
-```
-
----
-
-## 7. Funciones ⚙️
-
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-int suma(int a, int b) {
-    return a + b;
-}
-
-void saludar(const string& n) {
-    cout << "Hola " << n << "!\n";
-}
-
-int main() {
-    cout << suma(3, 4) << "\n";   // 7
-    saludar("Sofia");
-    return 0;
-}
-```
-
----
-
-## 8. Structs 👩‍👧‍👧
-
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-
-struct Persona {
-    string nombre;
-    int    edad;
-};
-
-int main() {
-    Persona p;
-    p.nombre = "Camila";
-    p.edad = 15;
-    cout << p.nombre << " tiene " << p.edad << " anos\n";
-    return 0;
-}
-```
-
----
-
-## 9. Consejos finales 💡  
-
-- **Comentarios**: `// esto se ignora`.  
-- Marca valores inmutables con **`const`**: `const float PI = 3.14159f;`.  
-- Practica con mini-proyectos: calculadora, “adivina el número”, lista de compras.  
-
----
-
-## 10. Truquitos rápidos 🪄✨  
-
-| Truco | Código / Uso | ¿Para qué sirve? |
-| ------- | -------------- | ------------------ |
-| **Bucle for-rango** | `for (int x : notas) cout << x << " ";` | Recorre arrays/vectores de forma más limpia. |
-| **`\n` vs `endl`** | `cout << "Hola\n";` | `\n` es más rápido (no vacía el buffer como `endl`). |
-| **`cin.ignore()`** | Después de `cin >>` y antes de `getline` | Evita que un salto de línea pendiente “robe” la entrada. |
-| **Inicialización con llaves** | `int x{0};` | Evita conversiones indeseadas. |
-| **`std::array`** | `#include <array>` → `array<int,3> a{1,2,3};` | Arreglo fijo “moderno” con `.size()`. |
-| **Algoritmos STL** | `sort(v.begin(), v.end());` | Ordenar, buscar, contar sin escribir todo el código. |
-| **Compilar con advertencias** | `g++ -std=c++17 -Wall -Wextra archivo.cpp` | Encuentra errores antes de ejecutar. |
-| **`swap` rápido** | `swap(a, b);` | Intercambia valores sin variable temporal. |
-| **Operador ternario** | `string r = (nota >= 4) ? "OK" : "Reprueba";` | Condición en una línea. |
-| **Debug rápido** | `cerr << "x=" << x << '\n';` | Mensajes de depuración en la consola de errores. |
-
----
-
-¡Listo! Con estos conceptos y trucos ya tienes todo para empezar a programar en C++ de forma divertida y eficiente. 🚀
