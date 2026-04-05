@@ -43,12 +43,19 @@
         font-weight: bold;
         font-size: 1.3em;
       }
+      .tree-wrapper {
+        display: flex;
+        justify-content: center;
+      }
       .tree {
         font-family: monospace;
-        font-size: 0.85em;
-        line-height: 1.6;
+        font-size: 1.1em;
+        line-height: 2;
         text-align: left;
-        display: inline-block;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
       }
       .reveal .slides section {
         padding: 20px;
@@ -195,24 +202,6 @@
           <p>
             La funcion se fue "abriendo" hasta llegar a los casos base,<br />y
             despues fue "cerrando" sumando los resultados. 🧩
-          </p>
-        </section>
-
-        <section>
-          <h3>El arbol completo</h3>
-          <!-- prettier-ignore -->
-          <pre class="tree">
-              fib(4) = <span class="resultado">3</span>
-             /                \
-        fib(3) = <span class="llamada">2</span>          fib(2) = <span class="llamada">1</span>
-       /           \          /           \
-  fib(2) = <span class="llamada">1</span>    fib(1) = <span class="caso-base">1</span>    fib(1) = <span class="caso-base">1</span>    fib(0) = <span class="caso-base">0</span>
-  /           \
-fib(1) = <span class="caso-base">1</span>    fib(0) = <span class="caso-base">0</span>
-</pre>
-          <p>
-            <span class="caso-base">Verde</span> = caso base &nbsp;
-            <span class="llamada">Naranja</span> = calculado
           </p>
         </section>
       </div>

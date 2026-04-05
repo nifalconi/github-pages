@@ -12,8 +12,10 @@ La pagina esta dividida en cuatro secciones:
 | --- | --- |
 | **Basico** | Primer programa, variables, entrada/salida, condicionales, bucles |
 | **Medio** | Arreglos (arrays), vectores |
-| **Avanzado** | Funciones, structs |
+| **Avanzado** | Funciones, recursion (con slides reveal.js de Fibonacci), structs |
 | **Glosario** | Referencia rapida de todos los conceptos con ejemplos comentados |
+| **Estrategias** | Como abordar un problema paso a paso (con diagrama Mermaid) |
+| **Referencias** | Links a Programacion Competitiva UChile, OCI e IOI |
 
 ## Tecnologias
 
@@ -39,13 +41,16 @@ Cada bloque de codigo C++ en las paginas se convierte automaticamente en un edit
 
 ```text
 docs/
-  index.md          # Nivel basico
-  medio.md          # Nivel medio
-  avanzado.md       # Nivel avanzado
-  glosario.md       # Glosario de referencia
-  js/cpprunner.js   # Logica del editor interactivo y conexion con Wandbox
-  css/cpprunner.css # Estilos del editor, toolbar y panel de salida
-mkdocs.yml          # Configuracion de MkDocs (tema, nav, assets externos)
+  index.md              # Nivel basico
+  medio.md              # Nivel medio
+  avanzado.md           # Nivel avanzado
+  glosario.md           # Glosario de referencia
+  estrategias.md        # Como abordar un problema
+  referencias.md        # Links utiles (UChile, OCI, IOI)
+  slides/fibonacci.html # Presentacion reveal.js de recursion
+  js/cpprunner.js       # Logica del editor interactivo y conexion con Wandbox
+  css/cpprunner.css     # Estilos del editor, toolbar y panel de salida
+mkdocs.yml              # Configuracion de MkDocs (tema, nav, assets externos)
 requirements.txt    # Dependencia de Python: mkdocs-material
 .github/workflows/
   pages.yml         # CI: markdownlint -> build -> deploy a GitHub Pages

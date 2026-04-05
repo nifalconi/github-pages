@@ -34,6 +34,7 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/clike/clike.min.js
   - js/cpprunner.js
 
+copyright: Curso de C++ para principiantes
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/dracula.min.css
@@ -44,6 +45,8 @@ nav:
       - Basico: index.md
       - Medio: medio.md
       - Avanzado: avanzado.md
-      - Glosario: glosario.md
+  - Glosario: glosario.md
   - Estrategias:
       - Como abordar un problema: estrategias.md
+  - Referencias:
+      - Links utiles: referencias.md
