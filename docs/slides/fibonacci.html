@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fibonacci paso a paso</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+    <link
+      id="theme-link"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
+    />
+    <style>
+      .reveal {
+        font-size: 28px;
+      }
+      .reveal h2 {
+        color: #5c6bc0;
+        font-size: 1.4em;
+      }
+      .reveal h3 {
+        color: #5c6bc0;
+        font-size: 1.1em;
+      }
+      code {
+        background: #f5f5f5;
+        padding: 2px 8px;
+        border-radius: 4px;
+        color: #e91e63;
+      }
+      .caso-base {
+        color: #4caf50;
+        font-weight: bold;
+      }
+      .llamada {
+        color: #ff9800;
+        font-weight: bold;
+      }
+      .resultado {
+        color: #5c6bc0;
+        font-weight: bold;
+        font-size: 1.3em;
+      }
+      .tree {
+        font-family: monospace;
+        font-size: 0.85em;
+        line-height: 1.6;
+        text-align: left;
+        display: inline-block;
+      }
+      .reveal .slides section {
+        padding: 20px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        code {
+          background: #333;
+          color: #ff80ab;
+        }
+        .reveal h2 {
+          color: #7986cb;
+        }
+        .reveal h3 {
+          color: #7986cb;
+        }
+        .resultado {
+          color: #7986cb;
+        }
+      }
+    </style>
+    <script>
+      // Detectar tema oscuro y cambiar el theme de reveal.js
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementById('theme-link').href =
+          'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css'
+      }
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', function (e) {
+          document.getElementById('theme-link').href = e.matches
+            ? 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css'
+            : 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css'
+        })
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>🐇 Fibonacci paso a paso</h2>
+          <p>Vamos a ver que pasa cuando la computadora calcula</p>
+          <p><code>fibonacci(4)</code></p>
+          <p>Usa las flechas ← → para avanzar</p>
+        </section>
+
+        <section>
+          <h3>Recuerda las reglas</h3>
+          <p>
+            <code>fibonacci(0)</code> = <span class="caso-base">0</span> (caso
+            base)
+          </p>
+          <p>
+            <code>fibonacci(1)</code> = <span class="caso-base">1</span> (caso
+            base)
+          </p>
+          <p>Para cualquier otro numero:</p>
+          <p>
+            <code>fibonacci(n)</code> = <code>fibonacci(n-1)</code> +
+            <code>fibonacci(n-2)</code>
+          </p>
+        </section>
+
+        <section>
+          <h3>Paso 1: empezamos con fibonacci(4)</h3>
+          <p>4 no es 0 ni 1, asi que hay que descomponer:</p>
+          <p>
+            <code>fibonacci(4)</code> = <code>fibonacci(3)</code> +
+            <code>fibonacci(2)</code>
+          </p>
+          <p>🤔 Pero no sabemos cuanto vale ninguno de los dos...</p>
+          <p>Hay que calcular cada uno por separado.</p>
+        </section>
+
+        <section>
+          <h3>Paso 2: calculamos fibonacci(3)</h3>
+          <p>3 tampoco es 0 ni 1, asi que seguimos descomponiendo:</p>
+          <p>
+            <code>fibonacci(3)</code> = <code>fibonacci(2)</code> +
+            <code>fibonacci(1)</code>
+          </p>
+          <p>
+            Ya sabemos que <code>fibonacci(1)</code> =
+            <span class="caso-base">1</span> ✅
+          </p>
+          <p>Pero <code>fibonacci(2)</code> hay que seguir descomponiendo...</p>
+        </section>
+
+        <section>
+          <h3>Paso 3: calculamos fibonacci(2)</h3>
+          <p>
+            <code>fibonacci(2)</code> = <code>fibonacci(1)</code> +
+            <code>fibonacci(0)</code>
+          </p>
+          <p><code>fibonacci(1)</code> = <span class="caso-base">1</span> ✅</p>
+          <p><code>fibonacci(0)</code> = <span class="caso-base">0</span> ✅</p>
+          <p>
+            Entonces: <code>fibonacci(2)</code> = 1 + 0 =
+            <span class="llamada">1</span>
+          </p>
+        </section>
+
+        <section>
+          <h3>Paso 4: volvemos a fibonacci(3)</h3>
+          <p>Ahora ya tenemos todo:</p>
+          <p>
+            <code>fibonacci(3)</code> = <code>fibonacci(2)</code> +
+            <code>fibonacci(1)</code>
+          </p>
+          <p>
+            <code>fibonacci(3)</code> = <span class="llamada">1</span> +
+            <span class="caso-base">1</span> = <span class="llamada">2</span>
+          </p>
+        </section>
+
+        <section>
+          <h3>Paso 5: el otro fibonacci(2)</h3>
+          <p>Volvemos al principio. Nos faltaba el otro lado:</p>
+          <p>
+            <code>fibonacci(4)</code> = <code>fibonacci(3)</code> +
+            <code>fibonacci(2)</code>
+          </p>
+          <p>
+            Ya sabemos que <code>fibonacci(3)</code> =
+            <span class="llamada">2</span>
+          </p>
+          <p>
+            <code>fibonacci(2)</code> = <code>fibonacci(1)</code> +
+            <code>fibonacci(0)</code> = 1 + 0 = <span class="llamada">1</span>
+          </p>
+        </section>
+
+        <section>
+          <h3>Paso 6: resultado final 🎉</h3>
+          <p>
+            <code>fibonacci(4)</code> = <code>fibonacci(3)</code> +
+            <code>fibonacci(2)</code>
+          </p>
+          <p>
+            <code>fibonacci(4)</code> = <span class="llamada">2</span> +
+            <span class="llamada">1</span> = <span class="resultado">3</span>
+          </p>
+          <br />
+          <p>
+            La funcion se fue "abriendo" hasta llegar a los casos base,<br />y
+            despues fue "cerrando" sumando los resultados. 🧩
+          </p>
+        </section>
+
+        <section>
+          <h3>El arbol completo</h3>
+          <!-- prettier-ignore -->
+          <pre class="tree">
+              fib(4) = <span class="resultado">3</span>
+             /                \
+        fib(3) = <span class="llamada">2</span>          fib(2) = <span class="llamada">1</span>
+       /           \          /           \
+  fib(2) = <span class="llamada">1</span>    fib(1) = <span class="caso-base">1</span>    fib(1) = <span class="caso-base">1</span>    fib(0) = <span class="caso-base">0</span>
+  /           \
+fib(1) = <span class="caso-base">1</span>    fib(0) = <span class="caso-base">0</span>
+</pre>
+          <p>
+            <span class="caso-base">Verde</span> = caso base &nbsp;
+            <span class="llamada">Naranja</span> = calculado
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        transition: 'slide'
+      })
+    </script>
+  </body>
+</html>

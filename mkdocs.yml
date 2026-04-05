@@ -21,7 +21,14 @@ theme:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.mark
+  - admonition
+  - pymdownx.details
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/clike/clike.min.js
@@ -33,7 +40,10 @@ extra_css:
   - css/cpprunner.css
 
 nav:
-  - Basico: index.md
-  - Medio: medio.md
-  - Avanzado: avanzado.md
-  - Glosario: glosario.md
+  - Curso de C++:
+      - Basico: index.md
+      - Medio: medio.md
+      - Avanzado: avanzado.md
+      - Glosario: glosario.md
+  - Estrategias:
+      - Como abordar un problema: estrategias.md
