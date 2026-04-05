@@ -14,7 +14,7 @@ La pagina esta dividida en cuatro secciones:
 | **Medio** | Arreglos (arrays), vectores |
 | **Avanzado** | Funciones, recursion (con slides reveal.js de Fibonacci), structs |
 | **Glosario** | Referencia rapida de todos los conceptos con ejemplos comentados |
-| **Estrategias** | Como abordar un problema paso a paso (con diagrama Mermaid) |
+| **Estrategias** | Como abordar un problema paso a paso (con diagrama Mermaid) + Ejercicios OCI con ejemplo real (Baldosas, OCI 2024 Regional) |
 | **Referencias** | Links a Programacion Competitiva UChile, OCI e IOI |
 
 ## Tecnologias
@@ -46,6 +46,7 @@ docs/
   avanzado.md           # Nivel avanzado
   glosario.md           # Glosario de referencia
   estrategias.md        # Como abordar un problema
+  ejercicios.md         # Ejercicios OCI: ejemplo real con estrategia de subrayar y anotar
   referencias.md        # Links utiles (UChile, OCI, IOI)
   slides/fibonacci.html # Presentacion reveal.js de recursion
   js/cpprunner.js       # Logica del editor interactivo y conexion con Wandbox

@@ -168,3 +168,119 @@ int main() {
     return 0;
 }
 ```
+
+???+ tip "Ejercicio: Tabla del 7"
+    Usa un `for` para mostrar la tabla de multiplicar del 7 (del 1 al 10).
+
+    La salida deberia verse asi:
+
+    ```
+    7 x 1 = 7
+    7 x 2 = 14
+    7 x 3 = 21
+    ...
+    ```
+
+---
+
+## 5. Funciones
+
+Una funcion es un bloque de codigo con nombre que puedes reutilizar. Le pasas datos (parametros), hace algo, y puede devolver un resultado.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int doble(int n) {
+    return n * 2;
+}
+
+int main() {
+    cout << doble(5) << "\n";   // 10
+    cout << doble(13) << "\n";  // 26
+    return 0;
+}
+```
+
+Si una funcion no devuelve nada, usas `void`:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void saludar(string nombre) {
+    cout << "Hola, " << nombre << "!" << "\n";
+}
+
+int main() {
+    saludar("Carlos");
+    saludar("Maria");
+    return 0;
+}
+```
+
+???+ tip "Ejercicio: Es par?"
+    Escribe una funcion `esPar` que reciba un `int` y devuelva `true` si es par, `false` si no.
+
+    Pista: un numero es par si el resto de dividirlo por 2 es cero (`n % 2 == 0`).
+
+---
+
+## 6. Arreglos (arrays)
+
+Un arreglo guarda varios datos del mismo tipo, uno al lado del otro. Se accede a cada dato con su posicion (empezando desde 0).
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int notas[4] = {90, 75, 88, 60};
+
+    cout << "Primera nota: " << notas[0] << "\n";
+    cout << "Ultima nota: " << notas[3] << "\n";
+
+    // recorrer el arreglo con for
+    for (int i = 0; i < 4; ++i) {
+        cout << "Nota " << i + 1 << ": " << notas[i] << "\n";
+    }
+    return 0;
+}
+```
+
+> Las posiciones van de `0` a `tamano - 1`. Si tienes 4 elementos, las posiciones son 0, 1, 2 y 3.
+
+???+ tip "Ejercicio: Suma total"
+    Tienes un arreglo con 5 numeros. Usa un `for` para sumarlos todos y mostrar el resultado.
+
+    ```cpp
+    int datos[5] = {3, 7, 2, 9, 1};
+    ```
+
+---
+
+## 7. Strings (texto)
+
+Un `string` es una cadena de caracteres. Puedes unirlos con `+`, ver cuantos caracteres tiene con `.length()`, y acceder a letras individuales con `[ ]`.
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string saludo = "Hola";
+    string nombre = "Ana";
+    string mensaje = saludo + ", " + nombre + "!";
+
+    cout << mensaje << "\n";
+    cout << "Tiene " << mensaje.length() << " caracteres" << "\n";
+    cout << "Primera letra: " << mensaje[0] << "\n";
+    return 0;
+}
+```
+
+???+ tip "Ejercicio: Contar una letra"
+    Pide al usuario una palabra y cuenta cuantas veces aparece la letra 'a'.
+
+    Pista: recorre el string con un `for` y compara cada `palabra[i]` con `'a'`.
